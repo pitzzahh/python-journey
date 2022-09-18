@@ -1,0 +1,11 @@
+<h2>55 is enough</h2>
+<html><body><p>Write a program that reads numbers until a user enters <span class="math-tex">\(55\)</span>. Once <u><em><span class="math-tex">\(55\)</span></em></u><em> </em>is entered, stop reading the input, print out how many numbers have been entered, their total sum, and average (do the rounding this way: <code class="java">round(number)</code>). Do <strong>NOT</strong> include <em><u><span class="math-tex">\(55\)</span></u></em> in your calculations. Print each resulting value on a new line in the following order:</p>
+<ul>
+<li>how many numbers there are</li>
+<li>their sum</li>
+<li>their average: sum / the number of read numbers</li>
+</ul>
+<p><button class="btn-sm btn-outline-secondary" onclick="getElementById('hint-688').style.display='inline'">
+        Hint
+      </button>
+</p><div id="hint-688" style="display:none;">There are several ways to solve the problem, feel free to choose the one you like. However, the easiest one would be to use two variables  – one to count incoming numbers (assign it to 0 and increase its value each time the incoming number is not 55) and one to sum them up on the fly (once again, start with 0 and add each incoming number not equal to 55 to it). This way, you won't need any additional tools.</div></body></html><br><b>Sample Input:</b><br><pre><code class="language-no-highlight">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>55<br>17<br>16<br>15<br>14<br>13</code></pre><br><b>Sample Output:</b><br><pre><code class="language-no-highlight">18<br>153<br>8</code></pre><br><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 15 seconds</font><br><br>

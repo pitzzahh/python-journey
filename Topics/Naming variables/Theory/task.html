@@ -1,0 +1,66 @@
+<h2>Naming variables</h2>
+<html><body><p>As you know, every variable has a name that uniquely identifies it among other variables. Giving a good name to a variable may not be as simple as it seems. Experienced programmers are careful when naming their variables to ensure that their programs are easy to understand. It is important because programmers spend a lot of time reading and understanding code written by other programmers. If variables have bad names, even your own code will seem unclear to you in a few months. In this topic, we will consider how to choose good names for your variables in accordance with conventions and best practices established in the Python community.</p>
+<h5 id="code-style-convention" style="text-align: center;">Code style convention</h5>
+<p>PEP 8 provides some rules for variable names to increase code readability.</p>
+<ul>
+<li>Use lowercase and underscores to split words. Even if it's an abbreviation.</li>
+</ul>
+<pre><code class="language-python">http_response  # yes!
+httpresponse   # no
+myVariable     # no, that's from Java</code></pre>
+<p>However, if you want to define a constant, it's common to write its name in all capital letters and, again, separate words with underscores. Normally, constants are stored in special files called modules. Although we'll cover this later, here is a small example:</p>
+<pre><code class="language-python">SPEED_OF_LIGHT = 299792458</code></pre>
+<ul>
+<li>Avoid names of one letter that could be easily mixed up with numbers like 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye).</li>
+</ul>
+<pre><code class="language-python">l = 1    # no
+O = 100  # no, if you use this variable name further in your code, it may look like a zero</code></pre>
+<ul>
+<li>Although you can use any <a href="https://en.wikipedia.org/wiki/List_of_Unicode_characters" rel="noopener noreferrer nofollow" target="_blank">Unicode</a> symbols, the code style convention recommends limiting variable names with <a href="http://www.asciitable.com/" rel="noopener noreferrer nofollow" target="_blank">ASCII</a> characters.</li>
+</ul>
+<pre><code class="language-python"># Using Cyrillic instead of Latin can cause an evening of useless headache
+# These are different variables!
+copy = "I'm written in Latin alphabet"        # yes!
+сору = "And I'm written in Cyrillic!"  # no</code></pre>
+<ul>
+<li>If the most suitable variable name is some Python keyword, add an underscore to the end of it.</li>
+</ul>
+<pre><code class="language-python">class_ = type(var)  # yes!
+klass = type(var)   # no</code></pre>
+<p>All the code style rules regarding names are described in <a href="https://www.python.org/dev/peps/pep-0008/#naming-conventions" rel="noopener noreferrer nofollow" target="_blank">PEP 8</a>.</p>
+<h5 id="other-variable-names-best-practices" style="text-align: center;">Other variable names best practices</h5>
+<p> There are also some best practices that are common for many programming languages.</p>
+<ul>
+<li>Choose a name that makes sense. The variable name must be readable and descriptive and should explain to the reader what sort of values will be stored in it.</li>
+</ul>
+<pre><code class="language-python">score  # yes!
+s      # no
+
+count  # yes!
+n      # no</code></pre>
+<ul>
+<li>Don't use too generic names. Try to choose a name that will explain the meaning of the variable. But don't make it too wordy. 1-3 words are usually enough.</li>
+</ul>
+<pre><code class="language-python">http_response                  # yes!
+var1                           # no
+http_response_from_the_server  # no, some words can be dropped</code></pre>
+<ul>
+<li>If a word is long, try to find the most common and expected short form to make it easier to guess later.</li>
+</ul>
+<pre><code class="language-python">output_file_path  # yes!
+fpath             # no
+output_flpth      # no</code></pre>
+<ul>
+<li>Avoid names from the built-in types list.</li>
+</ul>
+<pre><code class="language-python">str = 'Hello!'  # no, because in the further code you can't use str type as it's overridden</code></pre>
+<p></p><div class="alert alert-variant">Note, the last best practice is pretty Python-specific.</div><p></p>
+<h5 id="conclusion" style="text-align: center;">Conclusion</h5>
+<p>All the naming conventions and best practices are optional, but it is strongly recommended to follow them. As we mentioned at the beginning of this lesson, they make your code more readable and self-descriptive for you and other programmers. So far, the recommended practices are:</p>
+<ul>
+<li>Choose a name that is readable and descriptive, but not too wordy (1-3 words are enough).</li>
+<li>Use lowercase and separate words with underscores when you define <strong>variables</strong>.</li>
+<li>Use all capital letters when you define <strong>constants</strong>.</li>
+<li>Avoid names of one letter that could be easily mixed up with numbers like 'l', 'O', or 'I'.</li>
+<li>Avoid names that shadow the names of built-in objects. If the most suitable name is some Python keyword, add an underscore to the end of it (<code class="language-python">class_</code>).</li>
+</ul></body></html>

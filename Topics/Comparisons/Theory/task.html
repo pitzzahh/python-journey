@@ -1,0 +1,78 @@
+<h2>Comparisons</h2>
+<html><body><p>Writing code without comparing any values in it will get you only so far. Now, it's time to master this skill.</p>
+<h5 id="comparison-operators" style="text-align: center;">Comparison operators</h5>
+<p><strong>Comparison</strong> or <strong>relation</strong> operations let you compare two values and determine the relation between them. There are ten comparison operators in Python:</p>
+<ul>
+<li><code class="language-python">&lt;</code> strictly less than</li>
+<li><code class="language-python">&lt;=</code> less than or equal</li>
+<li><code class="language-python">&gt;</code> strictly greater than</li>
+<li><code class="language-python">&gt;=</code> greater than or equal</li>
+<li><code class="language-python">==</code> equal</li>
+<li><code class="language-python">!=</code> not equal</li>
+<li><code class="language-python">is</code> object identity</li>
+<li><code class="language-python">is not</code> negated object identity</li>
+<li><code class="language-python">in</code> membership</li>
+<li><code class="language-python">not in</code> negated membership.</li>
+</ul>
+<p>The result of applying these operators is always <code class="language-python">bool</code>. The following sections focus on the first six operators (<code class="language-python">&lt;</code>, <code class="language-python">&lt;=</code>, <code class="language-python">&gt;</code>, <code class="language-python">&gt;=</code>, <code class="language-python">==</code>, <code class="language-python">!=</code>), but you can find more details about identity and membership testing in the next topics. Also, pay attention to the greater/less than or equal operators, they are supposed to be written in the same order their names are pronounced: <code class="language-python">&lt;=</code> less than or equal, <code class="language-python">&gt;=</code> greater than or equal.</p>
+<h5 id="comparing-integers" style="text-align: center;">Comparing integers</h5>
+<p>In this topic, we will cover only integer comparison.</p>
+<pre><code class="language-python">a = 5
+b = -10
+c = 15
+
+result_1 = a &lt; b   # False
+result_2 = a == a  # True
+result_3 = a != b  # True
+result_4 = b &gt;= c  # False</code></pre>
+<p>Any expression that returns an integer is a valid comparison operand too:</p>
+<pre><code class="language-python">calculated_result = a == b + c  # True</code></pre>
+<p>Given the defined variables <code class="language-python">a</code>, <code class="language-python">b</code> and <code class="language-python">c</code>, we basically check if <code class="language-python">5</code> is equal to <code class="language-python">-10 + 15</code>, which is true.</p>
+<h5 id="comparison-chaining" style="text-align: center;">Comparison chaining</h5>
+<p>Since comparison operations return boolean values, you can join them using logical operators. In this case, it is important to know their priority, i.e. which one is executed first. All comparison operations have the same priority, and it is lower than that of any arithmetic, shifting, or bitwise operation (the last two are used for operations with bytes).</p>
+<pre><code class="language-python">x = -5
+y = 10
+z = 12
+
+result = x &lt; y and y &lt;= z  # True</code></pre>
+<p>In Python, there is a fancier way to write complex comparisons. It is called <strong>chaining</strong>. For example, <code class="language-python">x &lt; y &lt;= z</code> is almost equivalent to the expression you saw in the last example. The difference is that <code class="language-python">y</code> is evaluated only once. </p>
+<pre><code class="language-python">result = 10 &lt; (100 * 100) &lt;= 10000  # True, the multiplication is evaluated once</code></pre>
+<p></p><div class="alert alert-primary"> Please pay attention to the fact that tools for code quality often recommend <em>chaining</em> comparisons instead of <em>joining</em> them. </div><p></p>
+<p>Comparison chaining, however, should be used carefully because sometimes expressions might get tricky, so the result would depend on the operators' order and how the parentheses are put. Consider this example:</p>
+<pre><code class="language-python">a = 1
+b = 2
+c = 3
+e = 4
+f = 5
+g = 6
+
+print(b + c &lt;= e or f + g &gt;= e == f == 5)      # False
+print((b + c &lt;= e or f + g &gt;= e) == (f == 5))  # True</code></pre>
+<p>The first expression is <code class="language-python">False</code> because it is evaluated consequently: <code class="language-python">b + c &lt;= e</code> is <code class="language-python">False</code>, <code class="language-python">f + g &gt;= e</code> is <code class="language-python">True</code>. <code class="language-python">False</code> or <code class="language-python">True</code> is <code class="language-python">True</code> but it is not equal to <code class="language-python">f</code>, hence <code class="language-python">False</code> is not equal to <code class="language-python">5</code> and the whole expression is <code class="language-python">False</code>. In the second case, we have <code class="language-python">True</code> in the left parantheses and <code class="language-python">True</code> in the right parantheses, so <code class="language-python">True</code> equals <code class="language-python">True</code> and the final expression is also <code class="language-python">True</code>.</p>
+<h5 id="logic-arithmetics" style="text-align: center;">Logic &amp; arithmetics</h5>
+<p>Let's look at another interesting case. At the beginning of the topic, we learned that the result of applying comparison operators is always <code class="language-python">bool</code>. However, if there is a logical and arithmetic part in an expression, we might see unusual behavior due to logical operators in Python being short-circuited, or lazy:</p>
+<pre><code class="language-python">a = 1
+b = 2
+c = 3
+e = 4
+f = 5
+g = 6
+
+# True and-expressions return the result of the last operation:
+print(b + c * f &gt;= e and (f + g) * c)  # (17 &gt;= 4 is True) and 33 -&gt; 33
+print((f + g) * c and b + c * f &gt;= e)  # 33 and (17 &gt;= 4 is True) -- &gt; True
+
+# False and-expressions return a boolean False value:
+print(b + c * f &lt;= e and (f + g) * c)  # (17 &lt;= 4 is False) and 33 --&gt; False
+print((f + g) * c and b + c * f &lt;= e)  # 33 and (17 &lt;= 4 is False) --&gt; False
+
+# True or-expressions return the result of the first operation:
+print(b + c * f &gt;= e or (f + g) * c)  # (17 &gt;= 4 is True) or 33 --&gt; True
+print((f + g) * c or b + c * f &gt;= e)  # 33 or (17 &gt;= 4 is True) --&gt; 33
+
+# True-False or-expressions return the True part:
+print((f + g) * c or b + c * f &lt;= e)  # 33 or (17 &lt;= 4 is False) --&gt; 33
+print(b + c * f &lt;= e or (f + g) * c)  # (17 &lt;= 4 is False) or 33 --&gt; 33</code></pre>
+<p>It might look confusing at first sight but, if you think about it, every printed value is perfectly legal and complies with common mathematical logic.</p>
+<h5 id="summary">Summary</h5>
+<p>In this topic, we familiarized ourselves with Python comparison operators, learned how to compare integers, and use comparison chaining. These basic operators will definitely be a great help to you in the future!</p></body></html>

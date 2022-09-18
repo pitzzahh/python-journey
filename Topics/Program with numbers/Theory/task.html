@@ -1,0 +1,59 @@
+<h2>Program with numbers</h2>
+<html><body><p>Programs in which there's nothing to calculate are quite rare. Therefore, learning to program with numbers is never a bad idea. An even more valuable skill we are about to learn is the processing of user data. With its help, you can create interactive and by far more flexible applications. So let's get started!</p>
+<h5 id="reading-numbers-from-user-input" style="text-align: center;">Reading numbers from user input</h5>
+<p>Since you have become familiar with the <code class="language-python">input()</code> function in Python, it's hardly new to you that any data passed to this function is treated as a <strong>string</strong>. But how should we deal with numerical values? As a general rule, they are explicitly converted to corresponding numerical types:</p>
+<pre><code class="language-python">integer = int(input())
+floating_point = float(input())</code></pre>
+<p>Pay attention to current best practices: it's crucial not to name your variables as built-in types (say, <strong>float </strong>or <strong>int</strong>). Also, we should take into account user mistakes: if a user types an inaccurate input, say, a string '<samp>two</samp>' instead of a number <samp>2</samp>, a <code class="language-python">ValueError</code> will occur. At the moment, we won't focus on it; but don't worry, more information about errors is available in a dedicated topic. Now, consider a more detailed and pragmatic example of handling numerical inputs.</p>
+<h5 id="free-air-miles" style="text-align: center;">Free air miles</h5>
+<p>Imagine you have a credit card with a free air miles bonus program (or maybe you already have one). As a user, you are expected to input the amount of money you spend on average from this card per month. Let's assume that the bonus program gives you 2 free air miles for every dollar you spend. Here's a simple program to figure out when you can travel somewhere for free:</p>
+<pre><code class="language-python"># the average amount of money per month
+money = int(input("How much money do you spend per month: "))
+
+# the number of miles per unit of money
+n_miles = 2
+
+# earned miles
+miles_per_month = money * n_miles
+
+# the distance between London and Paris
+distance = 215
+
+# how many months do you need to get
+# a free trip from London to Paris and back
+print(distance * 2 / miles_per_month)</code></pre>
+<p>This program will calculate how many months it takes to travel the selected distance and back.</p>
+<p></p><div class="alert alert-warning">Although it is recommended to write messages for users in the <code class="language-python">input()</code> function, avoid them in our educational programming challenges, otherwise your code may not pass our tests.</div><p></p>
+<h5 id="advanced-forms-of-assignment" style="text-align: center;">Advanced forms of assignment</h5>
+<p>Whenever you use an equal sign <code class="language-python">=</code>, you actually assign some value to a variable. For that reason, <code class="language-python">=</code> is typically referred to as an <strong>assignment operator</strong>. Meanwhile, there are other assignment operators you can use in Python. They are also called <strong>compound assignment operators</strong>, for they carry out an arithmetic operation and assignment in one step. Have a look at the code snippet below:</p>
+<pre><code class="language-python"># simple assignment
+number = 10
+number = number + 1  # 11</code></pre>
+<p>This code is equivalent to the following one:</p>
+<pre><code class="language-python"># compound assignment
+number = 10
+number += 1  # 11</code></pre>
+<p>One can clearly see from the example that the second piece of code is more concise (for it doesn't repeat the variable's name).</p>
+<p>Naturally, similar assignment forms exist for the rest of arithmetic operations: <code class="language-python">-=</code>, <code class="language-python">*=</code>, <code class="language-python">/=</code>, <code class="language-python">//=</code>, <code class="language-python">%=</code>, <code class="language-python">**=</code>. Given the opportunity, use them to save time and effort.</p>
+<p>One possible application of compound assignment comes next.</p>
+<h5 id="counter-variable" style="text-align: center;">Counter variable</h5>
+<p>In programming, there is a concept called <em>loop</em>. It is used to repeat some block of code a certain number of times. Pretty often they have special variables called <strong>counters </strong>alongside them. A <strong>counter</strong>, as the name presupposes,<strong> </strong>counts something: how many times a condition is met, how many elements in the sequence, etc. Hence, counters should be integers. Now we are getting to the point: you can use the operators <code class="language-python">+=</code> and <code class="language-python">-=</code> to increase or decrease the counter respectively.</p>
+<p>Consider this example where a user determines the value by which the counter is increased:</p>
+<pre><code class="language-python">counter = 1
+step = int(input())  # let it be 3
+counter += step
+print(counter)  # it should be 4</code></pre>
+<p>In case you need only non-negative integers from the user (we are increasing the counter after all!), you can prevent incorrect inputs by using the <code class="language-python">abs()</code> function. It is a Python built-in function that returns the absolute value of a number (that is, value regardless of its sign). Let's readjust our last program a bit:</p>
+<pre><code class="language-python">counter = 1
+step = abs(int(input()))  # user types -3
+counter += step
+print(counter)  # it's still 4</code></pre>
+<p>As you can see, thanks to the <code class="language-python">abs()</code> function we got a positive number.</p>
+<p></p><div class="alert alert-primary">For now, it's all right that you do not know much about the mentioned details of <strong>errors</strong>, <strong>loops, </strong>and <strong>built-in functions </strong>in Python. We will catch up and make sure that you know these topics comprehensively. Keep learning!</div><p></p>
+<h5 id="summary">Summary</h5>
+<p>Thus, we have shed some light on new details about integer arithmetic and the processing of numerical inputs in Python. Feel free to use them in your future projects. In this topic, we discussed:</p>
+<ul>
+<li>how to read numbers from the user input;</li>
+<li>how to assign numbers to variables and use arithmetic operators to assign the result of the calculation;</li>
+<li>what counters are and when they are used.</li>
+</ul></body></html>

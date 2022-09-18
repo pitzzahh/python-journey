@@ -1,0 +1,98 @@
+<h2>Integer arithmetic</h2>
+<html><body><p>In real life, we often perform arithmetic operations. They help us to calculate the change from a purchase, determine the area of a room, count the number of people in a line, and so on. The same operations are used in programs.</p>
+<h5 id="basic-operations" style="text-align: center;">Basic operations</h5>
+<p>Python supports basic arithmetic operations:</p>
+<ul>
+<li>addition <code class="language-python">+</code></li>
+<li>subtraction <code class="language-python">-</code></li>
+<li>multiplication <code class="language-python">*</code></li>
+<li>division <code class="language-python">/</code></li>
+<li>integer division <code class="language-python">//</code></li>
+</ul>
+<p>The examples below show how it works for numbers.</p>
+<pre><code class="language-python">print(10 + 10)   # 20
+print(100 - 10)  # 90
+print(10 * 10)   # 100
+print(77 / 10)   # 7.7
+print(77 // 10)  # 7</code></pre>
+<p>There is a difference between division <code class="language-python">/</code> and integer division <code class="language-python">//</code>. The first produces a floating-point number (like <code class="language-python">7.7</code>), while the second one produces an integer value (like <code class="language-python">7</code>) ignoring the decimal part.</p>
+<p>Python raises an error if you try to divide by zero.</p>
+<pre><code class="language-no-highlight">ZeroDivisionError: division by zero</code></pre>
+<h5 id="writing-complex-expressions" style="text-align: center;">Writing complex expressions</h5>
+<p>Arithmetic operations can be combined to write more complex expressions:</p>
+<pre><code class="language-python">print(2 + 2 * 2)  # 6</code></pre>
+<p>The calculation order coincides with the rules of arithmetic operations. Multiplication has a higher priority level than addition and subtraction, so the operation <code class="language-python">2 * 2</code> is calculated first.</p>
+<p>To specify an order of execution, you can use <strong>parentheses,</strong> as in the following:</p>
+<pre><code class="language-python">print((2 + 2) * 2)  # 8</code></pre>
+<p>Like in arithmetic, parentheses can be nested inside each other. You can also use them for clarity.</p>
+<p>The minus operator has a unary form that negates the value or expression. A positive number becomes negative, and a negative number becomes positive.</p>
+<pre><code class="language-python">print(-10)  # -10
+print(-(100 + 200))  # -300
+print(-(-20))  # 20</code></pre>
+<h5 id="other-operations" style="text-align: center;">Other operations</h5>
+<p><strong>The remainder</strong><strong> of a division.</strong> Python modulo operator <code class="language-python">%</code> is used to get the remainder of a division. It may come in handy when you want to check if a number is even. Applied to <code class="language-python">2</code>, it returns <code class="language-python">1</code> for odd numbers and <code class="language-python">0</code> for the even ones.</p>
+<pre><code class="language-python">print(7 % 2)  # 1, because 7 is an odd number
+print(8 % 2)  # 0, because 8 is an even number</code></pre>
+<p>Here are some more examples:</p>
+<pre><code class="language-python"># Divide the number by itself
+print(4 % 4)     # 0
+# At least one number is a float
+print(11 % 6.0)  # 5.0
+# The first number is less than the divisor
+print(55 % 77)   # 55
+# With negative numbers, it preserves the divisor sign
+print(-11 % 5)    # 4
+print(11 % -5)    # -4</code></pre>
+<p></p><div class="alert alert-warning">Taking the remainder of the division by <code class="language-python">0</code> also leads to <code class="language-python">ZeroDivisionError</code>.</div><p></p>
+<p>The behavior of the mod function in Python might seem unexpected at first glance. While <code class="language-python">11 % 5 = 1</code> and <code class="language-python">-11 % -5 = -1</code> when both numbers on the left are of the same sign, <code class="language-python">11 % -5 = -4</code> and <code class="language-python">-11 % 5 = 4</code> if we have one negative number. In Python, the remainder always has the same sign as the divisor.</p>
+<p>In the first case, <code class="language-python">11 % -5 = -4</code>, as the remainder should be negative, we need to compare 15 and 11, not 10 and 11: <code class="language-python">11 = (-5) * (-3) + (-4)</code>. In the second case, <code class="language-python">-11 % 5 = 4</code>, the remainder is supposed to be positive: <code class="language-python">-11 = 5 * (-3) + 4</code>. It's alright if you don't understand how exactly it's calculated. However, if you want a detailed explanation, we have a separate topic on modulo division with negative numbers.</p>
+<p><strong>Exponentiation.</strong> Here is a way to raise a number to a power:</p>
+<pre><code class="language-python">print(10 ** 2)  # 100</code></pre>
+<p>This operation has a higher priority over multiplication.</p>
+<h5 id="operation-priority" style="text-align: center;">Operation priority</h5>
+<p>To sum up, there is a list of priorities for all considered operations:</p>
+<ol>
+<li>parentheses</li>
+<li>power</li>
+<li>unary minus </li>
+<li>multiplication, division, and remainder</li>
+<li>addition and subtraction</li>
+</ol>
+<p>As mentioned above, the unary minus changes the sign of its argument.</p>
+<p>Sometimes operations have the same priority:</p>
+<pre><code class="language-python">print(10 / 5 / 2)  # 1.0
+print(8 / 2 * 5)   # 20.0</code></pre>
+<p>The expressions above may seem ambiguous to you, since they have alternative solutions depending on the operation order: either <code class="language-python">1.0</code> or <code class="language-python">4.0</code> in the first example, and either <code class="language-python">20.0</code> or <code class="language-python">0.8</code> in the second one. In such cases, Python follows a left-to-right operation convention from mathematics. It's a good thing to know, so try to keep that in mind, too!</p>
+<h5 id="pep-time" style="text-align: center;">PEP time!</h5>
+<p>There are a few things to mention about the use of binary operators (that is, the operators that influence both operands). As you know, readability does matter in Python. So first, remember to surround a binary operator with a single space on both sides:</p>
+<pre><code class="language-python">number=30+12      # No!
+
+number = 30 + 12  # It's better this way</code></pre>
+<p></p><div class="alert alert-primary"> <strong>Operators</strong> are special symbols indicating what operation to perform. <strong>O</strong><strong>perands </strong>are values that the operation is performed on. Let's consider our example: <code class="language-python">30 + 12</code>. Here <code class="language-python">+</code> is an operator and <code class="language-python">30</code> and <code class="language-python">12</code> are operands. </div><p></p>
+<p>Also, sometimes people use the break <strong>after </strong>binary operators. But this can hurt readability in two ways:</p>
+<ul>
+<li>the operators are not in one column,  </li>
+<li>each operator has moved away from its operand and onto the previous line:</li>
+</ul>
+<pre><code class="language-python"># No: operators sit far away from their operands
+income = (gross_wages +
+          taxable_interest +
+          (dividends - qualified_dividends) -
+          ira_deduction -
+          student_loan_interest)</code></pre>
+<p>Mathematicians and their publishers follow the opposite convention in order to solve the readability problem. Donald Knuth explains this in his <em>Computers and Typesetting</em> series: "Although formulas within a paragraph always break after binary operations and relations, displayed formulas always break before binary operations". Following this tradition makes the code more readable:</p>
+<pre><code class="language-python"># Yes: easy to match operators with operands
+income = (gross_wages
+          + taxable_interest
+          + (dividends - qualified_dividends)
+          - ira_deduction
+          - student_loan_interest)</code></pre>
+<p>In Python code, it is <strong>permissible</strong> to break before or after a binary operator, as long as the convention is consistent locally. For new code, <strong>Knuth's style</strong> is suggested, according to PEP 8.</p>
+<h5 id="summary">Summary</h5>
+<p>Alright, now let's quickly overview what we've learned in this topic:</p>
+<ul>
+<li>what basic arithmetic operations Python supports and how to combine them in more complex expressions;</li>
+<li>a couple of other useful operations like calculation of the remainder of a division and exponentiation;</li>
+<li>operation priority in Python;</li>
+<li>how to write expressions according to PEP 8.</li>
+</ul></body></html>

@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: height = 4, width = 30, length = 50
+- text: height = 15, width = 25, length = 37
+- text: height = 25, width = 30, length = 23
+- text: height = 10, width = 35, length = 35
+files:
+- name: main.py
+  visible: true
+  text: |+
+    #  You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/6378#comment
+status: Solved
+record: -1
+custom_name: Carry on!
+local_check: false

@@ -1,0 +1,14 @@
+type: theory
+files:
+- name: main.py
+  visible: true
+  text: |+
+    #  You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/5872#comment
+status: Solved
+feedback:
+  time: Sun, 18 Sep 2022 14:34:10 UTC
+record: -1
+post_submission_on_open: true

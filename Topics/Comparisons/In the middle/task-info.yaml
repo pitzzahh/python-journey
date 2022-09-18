@@ -1,0 +1,17 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    # don't modify this code
+    # a stores an input value
+    a = int(input().strip())
+
+    # put your code here
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/5924#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sun, 18 Sep 2022 11:17:27 UTC
+record: -1

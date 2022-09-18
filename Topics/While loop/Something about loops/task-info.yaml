@@ -1,0 +1,18 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: '"While True" statement always leads to an infinite loop.'
+- text: If the while loop statement is true, loop iterations are over.
+- text: The while loop statement is written before the body of the loop.
+- text: An infinite loop is usually a logical mistake.
+files:
+- name: main.py
+  visible: true
+  text: |+
+    #  You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/5942#comment
+status: Solved
+record: -1
+local_check: false

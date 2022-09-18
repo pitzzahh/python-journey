@@ -1,0 +1,42 @@
+<h2>While loop</h2>
+<p>Sometimes one <strong>iteration</strong> (=execution) of a statement is not enough to get the result you need. That is why Python offers a special statement that will execute a block of code several times. Meet the <strong>loop </strong>command and one of the universal loops — the <strong>while </strong>loop.</p>
+
+<p>People generally don't choose Python to write <strong>fast </strong>code. The main advantages of Python are readability and simplicity. As the <strong>while loop </strong>requires the introduction of extra variables, iteration takes up more time. Thus, the while loop is quite slow and not that popular. It resembles a conditional operator: using the while loop, we can execute a set of statements as long as the condition is true.</p>
+
+<p>The condition itself (2) is written before the <strong>body</strong> of the loop (some call it the conditional code) and is checked before the body is executed. If the condition is true (3a), the iterations continue. If the condition is false (3b), the loop execution is terminated and the program control moves further to the next operation.</p>
+
+<p style="text-align: center;"><img alt="" height="186" src="https://ucarecdn.com/d148d035-d10e-45fe-a404-4ce315c422b8/" width="712"></p>
+
+<h5 id="visualization" style="text-align: center;">Visualization</h5>
+
+<p>If we visualize the while loop, it’ll look like this:</p>
+
+<pre><code class="language-python">number = 0
+while number &lt; 5:
+    print(number)
+    number += 1
+print('Now, the number is equal to 5')</code></pre>
+
+<p>The variable <code class="language-python">number</code> plays here the role of a <strong>counter </strong>– a variable that changes its value after each iteration. In this case, the iterations continue until the number is equal to 5 (note that the program outputs the value of the number <em>before</em> increasing it). When the value of a counter reaches 5, the program control moves to the next operation and prints the message<strong>.</strong> Here you can see the output of this code:</p>
+
+<pre><code class="language-no-highlight">0
+1
+2
+3
+4
+Now, the number is equal to 5</code></pre>
+
+<h5 id="the-infinite-loop" style="text-align: center;">The infinite loop</h5>
+
+<p>If you delete a part of the conditional code where you increase the value of a counter, you will bump into the <strong>infinite loop. </strong>What does it mean? Since you don’t increase your variable, a condition never becomes false and can work forever. Usually, it is a logical fallacy, and you'll have to stop the loop using special statements or finishing the loop manually.</p>
+
+<p>Sometimes the infinite loop can be useful, e.g. in querying a client when the loop works continuously to provide the constant exchange of information with a user. You can implement it by writing <code class="language-python">True</code> as a condition after the <code class="language-python">while</code> header.</p>
+
+<pre><code class="language-python">while True:
+    ...</code></pre>
+
+<h5 id="conclusion" style="text-align: center;">Conclusion</h5>
+
+<p>Now you are familiar with the <strong>while </strong>loop and its usage. Don’t forget about the role of a counter, otherwise, you’ll have to deal with the infinite loop. After you’ve written the code, try to "run" it as if you were a Python program. That’ll help you understand how the loop works.</p>
+
+<p>Programming is all about simplification, so the code should be readable, short, and clear. Don’t forget about comments and syntax. In the beginning, it may seem that the while loop is not that easy to implement, but after a couple of times, you’ll see that it’s a very useful tool.</p>
